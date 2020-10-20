@@ -148,6 +148,20 @@ a {
 @media (min-width: 480px) {
     #root {
         max-width: 480px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .main-action__btn {
+        width: 220px;
+        height: 52px;
+        font-size: 16px;
+        line-height: 34px;
+    }
+
+    section {
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
 }
 
@@ -162,11 +176,28 @@ a {
         padding-top: 40px;
         padding-bottom: 40px;
     }
+
+    .main-action__btn {
+        width: 295px;
+        height: 72px;
+        font-size: 22px;
+        line-height: 46px;
+    }
 }
 
 @media (min-width: 1000px) {
     #root {
         max-width: 1000px;
+    }
+
+    h2 {
+        font-size: 60px;
+        line-height: 60px;
+    }
+
+    .main-action__btn {
+        font-size: 20px;
+        line-height: 42px;
     }
 }
 
