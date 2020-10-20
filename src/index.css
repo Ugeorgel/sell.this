@@ -163,6 +163,11 @@ a {
         padding-top: 30px;
         padding-bottom: 30px;
     }
+
+    h2 {
+        font-size: 44px;
+        line-height: 44px;
+    }
 }
 
 @media (min-width: 768px) {
