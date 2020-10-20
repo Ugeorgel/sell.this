@@ -1,0 +1,220 @@
+@font-face {
+    font-family: 'Righteous';
+    src: url('./fonts/Righteous-Regular.ttf') format('opentype')
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./fonts/Montserrat-Regular.ttf') format('opentype')
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./fonts/Montserrat-Black.ttf') format('opentype');
+    font-weight: 900;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./fonts/Montserrat-Bold.ttf') format('opentype');
+    font-weight: bold;
+}
+
+@media (orientation: portrait) {
+    h2 {
+        font-size: 28px;
+    }
+}
+
+@media (orientation: landscape) {
+    h2 {
+        font-size: 44px;
+    }
+}
+
+body {
+    background: #0a0a0b;
+    color: #fff;
+    font-family: Montserrat;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+body,
+ul,
+li,
+button {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* html,
+body,
+#root {
+    height: 100%;
+} */
+
+h2 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 100%;
+    text-align: right;
+}
+
+section,
+footer {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+li {
+    list-style-type: none;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+.body_not-crollable {
+    overflow: hidden;
+}
+
+#root {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-action__btn {
+    border-radius: 50px;
+    font-style: normal;
+    font-weight: 500;
+    color: #fff;
+    background: linear-gradient(85.82deg, #359CFB 26.675%, #0866F2 44.885%, #0866F2 75.675%, #359CFB 94.885%);
+    background-size: 200% auto;
+    background-position: right center;
+    transition: .3s;
+}
+
+.main-action__btn:hover {
+    background-position: left;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+@media (orientation: portrait) and (min-width: 768px) {
+    h2 {
+        font-size: 60px;
+        line-height: 60px;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 1000px) { 
+    h2 {
+        font-size: 60px;
+        line-height: 60px;
+    }
+}
+
+
+@media (min-width: 0px) {
+    #root {
+        max-width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    section {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+@media (min-width: 480px) {
+    #root {
+        max-width: 480px;
+    }
+}
+
+@media (min-width: 768px) {
+    #root {
+        max-width: 768px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+@media (min-width: 1000px) {
+    #root {
+        max-width: 1000px;
+    }
+}
+
+@media (min-width: 1160px) {
+    #root {
+        max-width: 1160px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+@media (min-width: 1600px) {
+    #root {
+        max-width: 1600px;
+    }
+
+    h2 {
+        font-size: 78px;
+        line-height: 78px;
+    }
+
+    .main-action__btn {
+        width: 377px;
+        height: 92px;
+        font-size: 26px;
+        line-height: 55px;
+    }
+}
+
+@media (min-width: 1920px) {
+    #root {
+        max-width: 1920px;
+        padding-left: 124px;
+        padding-right: 122px;
+    }
+
+    h2 {
+        font-size: 98px;
+        line-height: 98px;
+    }
+
+    .main-action__btn {
+        width: 412px;
+        height: 101px;
+    }
+}

@@ -1,0 +1,352 @@
+@media (orientation: landscape) {
+    
+    .action__social {
+        display: none;
+    }
+
+    .action__social_landscape {
+        display: flex;
+        height: fit-content;
+        flex: .4;
+    }
+
+    .default-action-theme {
+        height: 52px;
+        width: 100%;
+        font-size: 15px;
+        line-height: 100%;
+        flex: .6;
+    }
+}
+
+@media (orientation: portrait) {
+
+    .action__social {
+        display: flex;
+    }
+
+    .action__social_landscape {
+        display: none;
+    }
+
+    .default-action-theme {
+        height: 62px;
+        width: 100%;
+        font-size: 18px;
+        line-height: 100%;
+    }
+}
+
+#action {
+    display: flex;
+}
+
+.action__title {
+    font-style: normal;
+    font-weight: 900;
+}
+
+.chat__element {
+    display: flex;
+    align-items: center;
+}
+
+.chat__message {
+    font-style: normal;
+    font-weight: normal;
+    color: #C2C2C2;
+    align-self: center;
+}
+
+.chat__element:nth-child(odd) {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.chat__element:nth-last-child(-n+2) {
+    margin-bottom: 0;
+}
+
+.chat__gradient {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #0A0A0B 0%, rgba(10, 10, 11, 0) 58.33%, rgba(10, 10, 11, 0) 100%);
+}
+
+
+.action__button {
+    background: linear-gradient(90.88deg,  #151516 3.89%, #202022 49.81%, #202022 53.7%, #151516 99.81%);
+    background-size: 200% auto;
+    background-position: right center;
+    transition: .3s;
+    font-style: normal;
+    font-weight: normal;
+    color: #C2C2C2;
+}
+
+.action__button:hover {
+    background-position: left;
+}
+
+.action__social {
+    width: 138px;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.action__title_large-screen {
+    display: none;
+}
+
+@media (orientation: portrait) and (min-width: 768px) {    
+    .chat__avatar {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .chat__message {
+        font-size: 17px;
+        line-height: 147.3%;
+        width: 452px;
+    }
+
+    .action__social {
+        display: none;
+    }
+
+    .action__social_landscape {
+        display: flex;
+        height: fit-content;
+    }
+
+    .default-action-theme {
+        height: 72px;
+        width: 100%;
+        font-size: 22px;
+        line-height: 100%;
+        flex: .5;
+    }
+}
+
+@media (min-width: 1160px) {
+    .action__main-content {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 110px;
+    }
+
+    .action__social_landscape {
+        display: none;
+    }
+
+    .action__social {
+        display: flex;
+        margin: unset;
+        width: 119px;
+    }
+
+    .action__social img {
+        width: inherit;
+        height: inherit;
+    }
+
+    .action__social a {
+        width: 52px;
+        height: 52px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .action__title_default {
+        display: none;
+    }
+
+    .action__title_large-screen {
+        display: block;
+        font-size: 78px;
+        line-height: 78px;
+        margin: unset !important;
+        width: 100% !important;
+    }
+
+    .action__social {
+        display: none;
+    }
+
+    .action__social_landscape {
+        display: flex;
+        margin-right: 68px;
+    }
+
+    .chat__element:last-child {
+        margin-bottom: unset;
+    }
+}
+
+@media (min-width: 1600px) {
+    #action {
+        height: 100vh;
+        align-items: center;
+    }
+
+    .action__wrap {
+        display: flex;
+        max-height: 799px;
+        min-height: 799px;
+    }
+
+    .chat__element:nth-child(odd) .chat__avatar {
+        margin-left: 13.3px;
+    }
+    
+    .chat__element:nth-child(even) .chat__avatar {
+        margin-right: 13.3px;
+    }
+
+    .chat__avatar {
+        width: 45px;
+        height: 45px;
+    }
+
+    .chat__message {
+        font-size: 18px;
+        line-height: 27px;
+        max-width: 459px;
+    }
+
+    .chat__block {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        min-width: 676px;
+    }
+
+    .action__social-link {
+        display: block;
+        width: 70px;
+        height: 70px;
+    }
+
+    .action__button {
+        font-size: 20px;
+        line-height: 32px;
+        width: 327px;
+        height: 79px;
+        border-radius: 59px;
+    }
+
+    .action__btns {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .action__submit-bid {
+        display: flex;
+        width: 605px;
+        justify-content: space-between;
+    }
+
+    .action__social-link-wrap {
+        display: flex;
+        width: 160px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .action__variants {
+        display: flex;
+        flex-direction: column;
+        height: 198px;
+        justify-content: space-between;
+    }
+
+    .action__column {
+        display: flex;
+        width: 704px;
+        justify-content: space-between;
+    }
+
+    .chat__gradient {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, #0A0A0B 0%, rgba(10, 10, 11, 0) 58.33%, rgba(10, 10, 11, 0) 100%);
+    }
+}
+
+@media (min-width: 1600px) and (max-height: 799px) {
+    #action {
+        height: unset;
+    }
+}
+
+@media (min-width: 1920px) {
+    .action__wrap {
+        max-height: 813px;
+        min-height: 813px;
+    }
+
+    .chat__element:nth-child(odd) .chat__avatar {
+        margin-left: 15px;
+    }
+    
+    .chat__element:nth-child(even) .chat__avatar {
+        margin-right: 15px;
+    }
+
+    .chat__avatar {
+        width: 52px;
+        height: 52px;
+    }
+
+    .chat__message {
+        max-width: 393px;
+    }
+
+    .chat__block {
+        min-width: 685px;
+        padding-bottom: 15px;
+    }
+
+    .action__social-link {
+        width: 83px;
+        height: 83px;
+    }
+
+    .action__button {
+        width: 358px;
+        height: 87px;
+        font-size: 22px;
+        line-height: 46px;
+    }
+
+    .action__submit-bid {
+        width: 683px;
+    }
+
+    .action__social-link-wrap {
+        width: 186px;
+    }
+
+    .action__variants {
+        height: 219px;
+    }
+
+    .action__column {
+        width: 761px;
+    }
+}
+
+@media (min-width: 1920px) and (max-height: 813px) {
+    #action {
+        height: unset;
+    }
+}
