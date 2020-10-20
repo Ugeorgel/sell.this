@@ -16,15 +16,15 @@ import initMenuInteractivity from './js/menu.js';
 
 function initScreensInteractivity() {
     initThirdScreenInteractivity()
-    initFourthScreenInteractivity()
-    initFivesScreenInteractivity()
-    initMenuInteractivity()
+    // initFourthScreenInteractivity()
+    // initFivesScreenInteractivity()
+    // initMenuInteractivity()
 }
 
 window.onload = function() {
-//    initScreensInteractivity()
+    initScreensInteractivity()
 }
 
 window.onresize = function() {
-//    initScreensInteractivity()
+    initScreensInteractivity()
 }
