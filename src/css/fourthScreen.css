@@ -48,10 +48,6 @@
     justify-content: space-between;
 }
 
-.projects__cover-item_not-nested {
-    position: relative;
-}
-
 .projects__cover__switcher {
     background-color: #151516;
     position: absolute;
@@ -66,10 +62,6 @@
 
 .projects__cover__switcher:hover {
     background-color: #202022;
-}
-
-.projects__cover-item_not-nested:before {
-    transform: rotate(180deg);
 }
 
 .projects__cover__switcher img {
@@ -133,33 +125,35 @@
         font-size: 22px;
         line-height: 46px;
     }
-
-    .projects__cover-item_nested-deep {
-        transform: scale(0.785);
-        filter: brightness(0.45);
-        transform-origin: top;
-        top: 0;
-    }
     
-    .projects__cover-item_nested-onSurface {
+    .projects__cover-item_nested {
         transform: scale(0.892);
         filter: brightness(0.5);
-        z-index: 2;
-    }
-    
-    .projects__cover-item_nested-onSurface_bottom {
-        bottom: 0;
-        top: unset;
-        transform-origin: bottom;
-    }
-
-    .projects__cover-item_nested-onSurface_top {
-        top: 70px;
-        transform-origin: top;
     }
 
     .projects__cover-item_not-nested {
-        bottom: 50px;
         z-index: 4;
+        width: 787px;
+        height: 553px;
+    }
+
+    .projects__cover-item_nested_first {
+        transform: scale(0.78);
+        filter: brightness(0.4);
+        top: 0;
+        transform-origin: top;
+        z-index: -1;
+    }
+
+    .projects__cover-item_nested_second {
+        top: 70px;
+        transform-origin: top;
+        z-index: 1;
+    }
+
+    .projects__cover-item_nested_last {
+        bottom: 0;
+        transform-origin: bottom;
+        z-index: 1;
     }
 }
