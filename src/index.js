@@ -18,7 +18,7 @@ function initScreensInteractivity() {
     initThirdScreenInteractivity()
     initFourthScreenInteractivity()
     initFivesScreenInteractivity()
-    // initMenuInteractivity()
+    initMenuInteractivity()
 }
 
 window.onload = function() {
