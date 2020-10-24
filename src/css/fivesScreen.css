@@ -2,16 +2,16 @@
     position: absolute;
     flex-direction: column;
     justify-content: space-between;
-    width: 665px;
-    height: 157px;
+    width: 100%;
     padding-top: 28px;
     padding-bottom: 28px;
     border-radius: 42px 42px 0px 0px;
     background: #19191B;
     box-sizing: border-box;
-    left: calc(50% - 332.5px);
+    left: 0;
     bottom: -200px;
     transition: .3s;
+    z-index: 9;
 }
 
 .feedback__send-form__popup_active {
@@ -280,6 +280,12 @@
 }
 
 @media (min-width: 768px) {
+    .feedback__send-form__popup {
+        width: 665px;
+        height: 157px;
+        left: calc(50% - 332.5px);
+    }
+
     .feedback-content__column .feedback__control {
         display: flex;
     }

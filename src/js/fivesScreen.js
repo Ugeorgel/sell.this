@@ -1,5 +1,6 @@
 const popup = document.getElementById('feedbackSendFormPopup');
 const sendBtn = document.getElementById('feedbackSendFormBtn');
+const sendBtnSmall = document.getElementById('feedbackSendFormBtnSmallScreen');
 const closeBtn = document.getElementById('sendFormPopupClose');
 
 export default () => {
@@ -8,6 +9,7 @@ export default () => {
 
 function bindFormPopup() {
     sendBtn.addEventListener('click', shopPopup);
+    sendBtnSmall.addEventListener('click', shopPopup);
     closeBtn.addEventListener('click', closePopup);
 }
 
