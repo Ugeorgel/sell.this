@@ -1,27 +1,25 @@
+const popup = document.getElementById('feedbackSendFormPopup');
+const sendBtn = document.getElementById('feedbackSendFormBtn');
+const closeBtn = document.getElementById('sendFormPopupClose');
+
 export default () => {
-    bindFormPopup()
+    bindFormPopup();
 }
 
-const popup = document.getElementById('feedbackSendFormPopup');
-
 function bindFormPopup() {
-    const sendBtn = document.getElementById('feedbackSendFormBtn');
-    const sendBtnDbl = document.getElementById('feedbackSendFormBtnLarge');
-    const close = document.getElementById('sendFormPopupClose');
-
-    sendBtn.addEventListener('click', shopPopup)
-    sendBtnDbl.addEventListener('click', shopPopup)
-
-    close.addEventListener('click', () => {
-        popup.style.display = 'none';
-    })
+    sendBtn.addEventListener('click', shopPopup);
+    closeBtn.addEventListener('click', closePopup);
 }
 
 function shopPopup() {
     setTimeout(() => {
-        popup.style.display = 'block';
+        popup.classList.add('feedback__send-form__popup_active');
         setTimeout(() => {
-            popup.style.display = 'none';
+            popup.classList.remove('feedback__send-form__popup_active');
         }, 5000)
     }, 700)
+}
+
+function closePopup() {
+    popup.classList.remove('feedback__send-form__popup_active');
 }

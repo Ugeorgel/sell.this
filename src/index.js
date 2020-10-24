@@ -17,7 +17,7 @@ import initMenuInteractivity from './js/menu.js';
 function initScreensInteractivity() {
     initThirdScreenInteractivity()
     initFourthScreenInteractivity()
-    // initFivesScreenInteractivity()
+    initFivesScreenInteractivity()
     // initMenuInteractivity()
 }
 

@@ -60,8 +60,20 @@ button {
     background: none;
 }
 
-button:focus {
+button:focus,
+input:focus,
+textarea:focus {
     outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .body_not-crollable {
@@ -72,6 +84,8 @@ button:focus {
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    overflow: hidden;
 }
 
 .main-action__btn {
