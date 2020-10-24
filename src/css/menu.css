@@ -114,6 +114,7 @@
         line-height: 31px;
         color: #0A0A0B;
         margin-top: 23px;
+        overflow: hidden;
     }
 
     .navigation__link:before {
