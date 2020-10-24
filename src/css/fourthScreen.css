@@ -38,6 +38,7 @@
 .projects__info {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 
 .projects__cover__switcher {
@@ -57,7 +58,7 @@
 }
 
 .projects__cover__switcher img {
-    width: 19px;
+    width: 14.25px;
 }
 
 .projects__article-wrap {
@@ -103,7 +104,7 @@
 
 @keyframes articleFromRight {
     0% {
-        right: -150px;
+        right: -30px;
         opacity: 0;
     }
 
@@ -151,6 +152,7 @@
     transform: scale(0.767);
     filter: brightness(0.5);
 }
+
 .projects__cover-item_mobile_third-nested {
     left: 160px;
     z-index: -2;
@@ -165,31 +167,193 @@
     filter: brightness(0.4);
 }
 
-@media (min-width: 768px) {
-
-}
-
-@media (min-width: 1000px) {
-    #projects {
-        height: 100vh;
-        display: flex;
-        align-items: center;
+@media (min-width: 0px) {
+    .projects__cover-item_mobile_second-nested {
+        left: 8px;
     }
     
-    .projects__info {
-        align-items: center;
+    .projects__cover-item_mobile_third-nested {
+        left: 16px;
+    }
+    
+    .projects__cover-item_mobile_fourth-nested {
+        left: 22px;
     }
 
     .projects__content {
         display: flex;
         flex-direction: column;
-        margin-top: 110px;
+        margin-top: 50px;
     }
 
     .projects__question_mobile {
         transition: .5s;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         margin-top: 50px;
+    }
+
+    .projects__question h3 {
+        font-size: 18px;
+        line-height: 18px;
+        margin-left: 20px;
+    }
+
+    .projects__question__icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .projects__article {
+        font-size: 14px;
+        line-height: 29px;
+        width: 100%;
+    }
+
+    .projects__cover-item,
+    .projects__cover-block {
+        width: 260px;
+        height: 184px;
+    }
+
+    .projects__cover__switcher {
+        width: 23.4px;
+        height: 23.4px;
+    }
+
+    .projects__cover__switcher_right,
+    .projects__cover__switcher_left {
+        top: 79px;
+    }
+
+    .projects__cover__switcher_right {
+        right: -16.7px;
+    }
+
+    .projects__cover__switcher_left {
+        left: -16.7px;
+    }
+
+    .project__control-btn-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 144px;
+        margin-top: 40px;
+    }
+
+    .project__control-btn-block .action__button {
+        width: 100%;
+        height: 62px;
+    }
+
+    .next-project__arrow {
+        width: 24px;
+        height: 12px;
+    }
+
+    .projects__article-list {
+        width: 100%;
+    }
+
+}
+
+@media (min-width: 480px) {
+    .projects__cover-item_mobile_second-nested {
+        left: 15px;
+    }
+    
+    .projects__cover-item_mobile_third-nested {
+        left: 30px;
+    }
+    
+    .projects__cover-item_mobile_fourth-nested {
+        left: 45px;
+    }
+
+    .projects__question_mobile {
+        margin-bottom: 25px;
+    }
+
+    .projects__article {
+        font-size: 12px;
+        line-height: 25px;
+        width: 382px;
+    }
+
+    .projects__cover-item,
+    .projects__cover-block {
+        width: 387px;
+        height: 274px;
+    }
+
+    .projects__cover__switcher {
+        width: 29.25px;
+        height: 29.25px;
+    }
+
+    .projects__cover__switcher_right,
+    .projects__cover__switcher_left {
+        top: 122px;
+    }
+
+    .projects__cover__switcher_right {
+        right: -14.625px;
+    }
+
+    .projects__cover__switcher_left {
+        left: -14.625px;
+    }
+
+    .project__control-btn-block {
+        flex-direction: row;
+        height: 52px;
+        margin-top: 25px;
+    }
+
+    .project__control-btn-block .action__button {
+        width: 158px;
+        height: 44px;
+    }
+
+    .next-project__arrow {
+        width: 17px;
+        height: 8px;
+    }
+
+    .projects__article-list {
+        width: 382px;
+    }
+
+}
+
+@media (min-width: 768px) {
+    @keyframes articleFromRight {
+        0% {
+            right: -100px;
+            opacity: 0;
+        }
+    
+        100% {
+            right: 0;
+            opacity: 1;
+        }
+    }
+
+    .projects__cover__switcher img {
+        width: 19px;
+    }
+
+    .projects__cover-item_mobile_second-nested {
+        left: 50px;
+    }
+    
+    .projects__cover-item_mobile_third-nested {
+        left: 100px;
+    }
+    
+    .projects__cover-item_mobile_fourth-nested {
+        left: 150px;
     }
 
     .projects__question h3 {
@@ -208,7 +372,7 @@
         line-height: 42px;
         width: 591px;
     }
-    
+
     .projects__cover-item,
     .projects__cover-block {
         width: 570px;
@@ -234,14 +398,14 @@
     }
 
     .project__control-btn-block {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 174px;
+        height: 72px;
+        margin-top: 50px;
+        align-items: unset;
     }
 
     .project__control-btn-block .action__button {
-        width: 100%;
+        width: 295px;
+        height: unset;
     }
 
     .next-project__arrow {
@@ -251,6 +415,62 @@
 
     .projects__article-list {
         width: 591px;
+    }
+
+}
+
+@media (min-width: 1000px) {
+    @keyframes articleFromRight {
+        0% {
+            right: -150px;
+            opacity: 0;
+        }
+    
+        100% {
+            right: 0;
+            opacity: 1;
+        }
+    }
+    .projects__cover-item_mobile_second-nested {
+        left: 80px;
+    }
+    
+    .projects__cover-item_mobile_third-nested {
+        left: 160px;
+    }
+    
+    .projects__cover-item_mobile_fourth-nested {
+        left: 240px;
+    }
+    
+    #projects {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+    
+    .projects__info {
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .projects__content {
+        margin-top: 110px;
+    }
+
+    .projects__question_mobile {
+        transition: .5s;
+        margin-bottom: 40px;
+    }
+
+    .project__control-btn-block {
+        flex-direction: column;
+        height: 174px;
+        margin-top: unset;
+    }
+
+    .project__control-btn-block .action__button {
+        width: 100%;
     }
 }
 

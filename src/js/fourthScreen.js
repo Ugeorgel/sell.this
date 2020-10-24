@@ -7,6 +7,7 @@ const projectsCovers = projectsSection.querySelectorAll('.projects__cover-item')
 const coverBlock = projectsSection.querySelector('.projects__cover-block');
 const projectsArticles = projectArticlesList.querySelectorAll('.projects__article-wrap');
 const projectsQuestion = projectsSection.querySelector('.projects__question');
+const nextProjectBtn = document.getElementById('projectsControlNext');
 
 export default () => {
     let mainCoverIndex = 2;
@@ -21,10 +22,9 @@ export default () => {
     }
 
     function bindCoversSwitchers() {
-        if (window.screen.width >= 1000) {
-            projectsCoverSwitcherUp.addEventListener('click', decrementMainCoverIndex);
-            projectsCoverSwitcherDown.addEventListener('click', incrementMainCoverIndex);
-        }
+        projectsCoverSwitcherUp.addEventListener('click', decrementMainCoverIndex);
+        projectsCoverSwitcherDown.addEventListener('click', incrementMainCoverIndex);   
+        nextProjectBtn.addEventListener('click', incrementMainCoverIndex);
     }
 
     function incrementMainCoverIndex() {
@@ -243,22 +243,22 @@ export default () => {
         mainCoverTopOffset = 100;
     }
 
-    if (window.screen.width <= 1000 && window.screen.width > 768) {
+    if (window.screen.width >= 1000 && window.screen.width < 1160) {
         secondCoverLeftOffset = 80;
         calculateProjectsSectionHeight();
     }
 
-    if (window.screen.width <= 768 && window.screen.width > 480) {
+    if (window.screen.width >= 768 && window.screen.width < 1000) {
         secondCoverLeftOffset = 50;
         calculateProjectsSectionHeight();
     }
 
-    if (window.screen.width <= 480 && window.screen.width > 320) {
+    if (window.screen.width >= 480 && window.screen.width < 768) {
         secondCoverLeftOffset = 15;
         calculateProjectsSectionHeight();
     }
 
-    if (window.screen.width <= 320) {
+    if (window.screen.width < 480) {
         secondCoverLeftOffset = 8;
         calculateProjectsSectionHeight();
     }
