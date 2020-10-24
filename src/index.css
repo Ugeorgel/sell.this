@@ -113,6 +113,10 @@ a {
     cursor: pointer;
 }
 
+footer {
+    padding-bottom: 30px;
+}
+
 @media (min-width: 0px) {
     #root {
         max-width: 100%;
