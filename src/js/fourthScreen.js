@@ -11,65 +11,68 @@ const projectsQuestion = projectsSection.querySelector('.projects__question');
 export default () => {
     let mainCoverIndex = 2;
     let mainCoverTopOffset;
+    let secondCoverLeftOffset;
 
     function calculateArticleHeight() {
         const heights = [...articleWraps].map((article) => article.clientHeight);
         const maxHeight = Math.max(...heights);
-    
+
         projectArticlesList.style.height = `${maxHeight}px`;
     }
-    
+
     function bindCoversSwitchers() {
-        if (window.screen.width >= 1160) {
+        if (window.screen.width >= 1000) {
             projectsCoverSwitcherUp.addEventListener('click', decrementMainCoverIndex);
             projectsCoverSwitcherDown.addEventListener('click', incrementMainCoverIndex);
         }
     }
-    
+
     function incrementMainCoverIndex() {
         if (++mainCoverIndex > 3) {
             mainCoverIndex = 0;
         }
-    
+
         switchCover();
         switchArticle(0);
         switchQuestionColor();
     }
-    
+
     function decrementMainCoverIndex() {
         if (--mainCoverIndex < 0) {
             mainCoverIndex = 3;
         }
-    
+
         switchCover();
         switchArticle(1);
         switchQuestionColor();
     }
-    
+
     function switchCover() {
-        const prevMainCover = coverBlock.querySelector('.projects__cover-item_not-nested');
+        const prevMainCover = coverBlock.querySelector('.projects__cover-item_not-nested.projects__cover-item_mobile_not-nested');
         const futureMainCover = projectsCovers[mainCoverIndex];
-    
+
         const prevMainClasses = prevMainCover.classList.value.split(' ');
         const futureMainClasses = futureMainCover.classList.value.split(' ');
 
-        prevMainCover.removeEventListener('mousedown', moveConfigurator.prepareForMove);
-    
+        if (window.screen.width >= 1160) {
+            prevMainCover.removeEventListener('mousedown', moveConfigurator.prepareForMove);
+        } else {
+            prevMainCover.removeEventListener('touchstart', moveConfigurator.prepareForMove);
+        }
+
         prevMainCover.classList.remove(...prevMainClasses);
         prevMainCover.classList.add(...futureMainClasses);
-    
+
         futureMainCover.classList.remove(...futureMainClasses);
         futureMainCover.classList.add(...prevMainClasses);
-    
-        if (window.screen.width >= 1160) {
-            moveConfigurator = new MainCoverMoveConfigurator(futureMainCover);
-            moveConfigurator.run();
-        }
+
+        moveConfigurator = new MainCoverMoveConfigurator(futureMainCover);
+        moveConfigurator.run();
     }
-    
+
     function switchArticle(fromUp) {
         const targetArticle = projectsArticles[mainCoverIndex];
-    
+
         projectsArticles.forEach((article) => {
             if (article === targetArticle) {
                 if (fromUp) {
@@ -82,7 +85,7 @@ export default () => {
             }
         })
     }
-    
+
     function switchQuestionColor() {
         switch (mainCoverIndex) {
             case 0:
@@ -101,7 +104,13 @@ export default () => {
                 return;
         }
     }
-    
+
+    function calculateProjectsSectionHeight() {
+        if (projectsSection.firstElementChild.offsetHeight > window.screen.height) {
+            projectsSection.height = 'unset';
+        }
+    }
+
     class MainCoverMoveConfigurator {
         constructor(mainCover) {
             this.cover = mainCover;
@@ -109,62 +118,113 @@ export default () => {
             this.onMouseMove = this.onMouseMove.bind(this);
             this.onMouseUp = this.onMouseUp.bind(this);
         }
-    
+
         run() {
             if (window.screen.width >= 1160) {
                 this.cover.addEventListener('mousedown', this.prepareForMove);
+            } else {
+                this.cover.addEventListener('touchstart', this.prepareForMove)
             }
-    
-            this.cover.ondragstart = function() {
+
+            this.cover.ondragstart = function () {
                 return false;
             };
         }
-    
+
         prepareForMove(e) {
-            this.startY = e.clientY;
-            document.addEventListener('mousemove', this.onMouseMove);
-            document.addEventListener('mouseup', this.onMouseUp)
-        }
-    
-        onMouseMove(e) {
-            this.yDiff = e.clientY - this.startY;
-            if (e.clientY < this.startY) {
-                this.isToUp = true;
+            if (window.screen.width >= 1160) {
+                this.startY = e.clientY;
+                document.addEventListener('mousemove', this.onMouseMove);
+                document.addEventListener('mouseup', this.onMouseUp);
             } else {
-                this.isToUp = false;
+                this.startX = e.touches[0].clientX;
+                document.addEventListener('touchmove', this.onMouseMove);
+                document.addEventListener('touchend', this.onMouseUp);
             }
+        }
+
+        onMouseMove(e) {
+            if (window.screen.width >= 1160) {
+                this.yDiff = e.clientY - this.startY;
+
+                if (e.clientY < this.startY) {
+                    this.isToUp = true;
+                } else {
+                    this.isToUp = false;
+                }
+            } else {
+                this.xDiff = e.touches[0].clientX - this.startX;
+                if (e.touches[0].clientX < this.startX) {
+                    this.isToLeft = true;
+                } else {
+                    this.isToLeft = false;
+                }
+            }
+
             this.moveCover();
         }
-    
-        onMouseUp() {    
-            document.removeEventListener('mousemove', this.onMouseMove);
-            this.cover.removeEventListener('mousedown', this.prepareForMove);
-            document.removeEventListener('mouseup', this.onMouseUp);
 
-            this.cover.style.top = null;
+        onMouseUp() {
+            if (window.screen.width >= 1160) {
+                document.removeEventListener('mousemove', this.onMouseMove);
+                this.cover.removeEventListener('mousedown', this.prepareForMove);
+                document.removeEventListener('mouseup', this.onMouseUp);
 
-            if (this.isToUp) {
-                decrementMainCoverIndex();
+                this.cover.style.top = null;
+
+                if (this.isToUp) {
+                    decrementMainCoverIndex();
+                } else {
+                    incrementMainCoverIndex();
+                }
             } else {
-                incrementMainCoverIndex();
+                document.removeEventListener('touchmove', this.onMouseMove);
+                this.cover.removeEventListener('touchstart', this.prepareForMove);
+                document.removeEventListener('touchend', this.onMouseUp);
+
+                this.cover.style.left = null;
+
+                if (this.isToLeft) {
+                    decrementMainCoverIndex();
+                } else {
+                    incrementMainCoverIndex();
+                }
             }
         }
-    
+
         moveCover() {
-            let newOffset = mainCoverTopOffset + this.yDiff;
-            const limit = this.isToUp ? mainCoverTopOffset / 2 + 10 : mainCoverTopOffset + mainCoverTopOffset / 2 - 30;
-    
-            if (this.isToUp) {
-                if (newOffset < limit) {
-                    newOffset = limit
+            if (window.screen.width >= 1160) {
+                let newOffset = mainCoverTopOffset + this.yDiff;
+                const limit = this.isToUp ? mainCoverTopOffset / 2 - 30 : mainCoverTopOffset + mainCoverTopOffset / 2 - 30;
+
+                if (this.isToUp) {
+                    if (newOffset < limit) {
+                        newOffset = limit
+                    }
+                } else {
+                    if (newOffset > limit) {
+                        newOffset = limit
+                    }
                 }
+
+                this.cover.style.top = `${newOffset}px`;
             } else {
-                if (newOffset > limit) {
-                    newOffset = limit
+                let newOffset = this.xDiff;
+                const limit = this.isToLeft ? -20 : secondCoverLeftOffset + 10;
+
+                if (this.isToLeft) {
+                    if (newOffset < limit) {
+                        newOffset = limit
+                    }
+                } else {
+                    if (newOffset > limit) {
+                        newOffset = limit
+                    }
                 }
+
+                this.cover.style.left = `${newOffset}px`;
             }
-    
-            this.cover.style.top = `${newOffset}px`;
+
         }
     }
 
@@ -177,5 +237,29 @@ export default () => {
 
     if (window.screen.width >= 1600) {
         mainCoverTopOffset = 140;
+    }
+
+    if (window.screen.width >= 1160 && window.screen.width < 1600) {
+        mainCoverTopOffset = 100;
+    }
+
+    if (window.screen.width <= 1000 && window.screen.width > 768) {
+        secondCoverLeftOffset = 80;
+        calculateProjectsSectionHeight();
+    }
+
+    if (window.screen.width <= 768 && window.screen.width > 480) {
+        secondCoverLeftOffset = 50;
+        calculateProjectsSectionHeight();
+    }
+
+    if (window.screen.width <= 480 && window.screen.width > 320) {
+        secondCoverLeftOffset = 15;
+        calculateProjectsSectionHeight();
+    }
+
+    if (window.screen.width <= 320) {
+        secondCoverLeftOffset = 8;
+        calculateProjectsSectionHeight();
     }
 }
