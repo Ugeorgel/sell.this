@@ -9,12 +9,14 @@ import './css/fivesScreen.css';
 import './css/footer.css';
 import './css/menu.css';
 
+import initFirstScreenInteractivity from './js/firstScreen';
 import initThirdScreenInteractivity from './js/thirdScreen';
 import initFourthScreenInteractivity from './js/fourthScreen';
 import initFivesScreenInteractivity from './js/fivesScreen';
 import initMenuInteractivity from './js/menu.js';
 
 function initScreensInteractivity() {
+    initFirstScreenInteractivity()
     initThirdScreenInteractivity()
     initFourthScreenInteractivity()
     initFivesScreenInteractivity()

@@ -1,15 +1,15 @@
-const projectsSection = document.getElementById('projects');
-const articleWraps = projectsSection.querySelectorAll('.projects__article-wrap');
-const projectArticlesList = projectsSection.querySelector('#projectsArticleList');
-const projectsCoverSwitcherUp = document.getElementById('projectsCoverSwitcherUp');
-const projectsCoverSwitcherDown = document.getElementById('projectsCoverSwitcherDown');
-const projectsCovers = projectsSection.querySelectorAll('.projects__cover-item');
-const coverBlock = projectsSection.querySelector('.projects__cover-block');
-const projectsArticles = projectArticlesList.querySelectorAll('.projects__article-wrap');
-const projectsQuestion = projectsSection.querySelector('.projects__question');
-const nextProjectBtn = document.getElementById('projectsControlNext');
-
 export default () => {
+    const projectsSection = document.getElementById('projects');
+    const articleWraps = projectsSection.querySelectorAll('.projects__article-wrap');
+    const projectArticlesList = projectsSection.querySelector('#projectsArticleList');
+    const projectsCoverSwitcherUp = document.getElementById('projectsCoverSwitcherUp');
+    const projectsCoverSwitcherDown = document.getElementById('projectsCoverSwitcherDown');
+    const projectsCovers = projectsSection.querySelectorAll('.projects__cover-item');
+    const coverBlock = projectsSection.querySelector('.projects__cover-block');
+    const projectsArticles = projectArticlesList.querySelectorAll('.projects__article-wrap');
+    const projectsQuestion = projectsSection.querySelector('.projects__question');
+    const nextProjectBtn = document.getElementById('projectsControlNext');
+
     let mainCoverIndex = 2;
     let mainCoverTopOffset;
     let secondCoverLeftOffset;
@@ -23,7 +23,7 @@ export default () => {
 
     function bindCoversSwitchers() {
         projectsCoverSwitcherUp.addEventListener('click', decrementMainCoverIndex);
-        projectsCoverSwitcherDown.addEventListener('click', incrementMainCoverIndex);   
+        projectsCoverSwitcherDown.addEventListener('click', incrementMainCoverIndex);
         nextProjectBtn.addEventListener('click', incrementMainCoverIndex);
     }
 
