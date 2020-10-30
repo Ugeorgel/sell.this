@@ -7,7 +7,7 @@ export default () => {
     const projectsCovers = projectsSection.querySelectorAll('.projects__cover-item');
     const coverBlock = projectsSection.querySelector('.projects__cover-block');
     const projectsArticles = projectArticlesList.querySelectorAll('.projects__article-wrap');
-    const projectsQuestion = projectsSection.querySelector('.projects__question');
+    const projectsQuestion = projectsSection.querySelectorAll('.projects__question');
     const nextProjectBtn = document.getElementById('projectsControlNext');
 
     let mainCoverIndex = 2;
@@ -89,16 +89,16 @@ export default () => {
     function switchQuestionColor() {
         switch (mainCoverIndex) {
             case 0:
-                projectsQuestion.style.color = '#FF653D';
+                [...projectsQuestion].forEach(el => el.style.color = '#FF653D');
                 break;
             case 1:
-                projectsQuestion.style.color = '#00BC54';
+                [...projectsQuestion].forEach(el => el.style.color = '#00BC54');
                 break;
             case 2:
-                projectsQuestion.style.color = '#EA6682';
+                [...projectsQuestion].forEach(el => el.style.color = '#EA6682');
                 break;
             case 3:
-                projectsQuestion.style.color = '#00C2FF';
+                [...projectsQuestion].forEach(el => el.style.color = '#00C2FF');
                 break;
             default:
                 return;
